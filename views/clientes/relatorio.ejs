@@ -1,0 +1,28 @@
+<%- include("../partials/header.ejs") %>
+<h1>Relatório de Clientes</h1>
+<hr>
+
+<% if (clientes) { %>
+    <button type="button" onclick="window.print(); return false;" class="btn btn-info">Imprimir</button>
+    <table class="table">
+        <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+        </tr>
+        
+    <% clientes.forEach(cliente => { %>
+        <tr>
+            <td><%= cliente.nome %></td>
+            <td><%= cliente.endereco %></td>
+            <td><%= cliente.email %></td>
+            <td><%= cliente.telefone %></td>
+        </tr>
+    <% }) %>
+    </table>    
+<% } else { %>
+    Não há dados de clientes para exibir.    
+<% } %>
+<br><br><a href="/">Voltar</a>
+<%- include("../partials/footer.ejs") %>

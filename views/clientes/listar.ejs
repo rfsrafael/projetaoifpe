@@ -1,0 +1,34 @@
+<%- include("../partials/header.ejs") %>
+    <h1>Clientes</h1>
+    <hr>
+    <a class="btn btn-success" href="/clientes/cadastro/">Cadastrar</a>
+    <br/><br/>
+    <% if (clientes) { %>
+            <% clientes.forEach(cliente=> { %>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= cliente.nome %></h5>
+                        <p class="card-text">
+                            <b>Endereço:</b>
+                            <%= cliente.endereco %>
+                        </p>
+                        <p class="card-text">
+                            <b>Telefone:</b>
+                            <%= cliente.telefone %>
+                        </p>
+                        <p class="card-text">
+                            <b>E-mail:</b>
+                            <%= cliente.email %>
+                        </p>
+                        <a class="btn btn-warning" href="/clientes/cadastro/<%= cliente.id %>">Editar</a>
+                        <a class="btn btn-danger" href="/clientes/remover/<%= cliente.id %>"
+                                        onclick="return confirm('Deseja realmente remover?');">Remover</a>
+                    </div>
+                </div>
+            <% }) %>
+
+    <% } else { %>
+        Não há dados de clientes para exibir.
+        <% } %>
+            <br><br><a href="/">Voltar</a>
+            <%- include("../partials/footer.ejs") %>
