@@ -39,5 +39,5 @@ app.use((req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-    console.log("Servidor executando!");
+    console.log("Servidor executando com sucesso!");
 });
