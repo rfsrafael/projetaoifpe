@@ -24,7 +24,6 @@ module.exports = class ClienteController {
     
     static async cadastrarClientePost(req, res) {
         const cliente = req.body;
-        console.log(cliente);
         if(cliente.id){ // atualizar
             await Cliente.findOneAndUpdate({ _id: cliente.id}, {
                 nome: cliente.nome,
